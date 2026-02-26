@@ -4,8 +4,9 @@
  */
 
 // API Configuration
-const API_BASE = 'http://localhost:5000/api';  // Local development
-// For production use: 'https://ai-cliometrics-api.onrender.com/api'
+// const API_BASE = 'http://localhost:5000/api';  // Local development
+// For production use:
+const API_BASE = 'https://ai-cliometrics-api.onrender.com/api';
 
 // The 8 Explanatory Factors
 const FACTORS = [
