@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cliometrics - Expert Panel</title>
+    <meta name="description"
+        content="Expert validation panel for AI Cliometrics research project on the Industrial Revolution">
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Background decoration -->
+    <div class="bg-decoration">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" />
+                            <path d="M12 20h16M20 12v16" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                            <circle cx="20" cy="20" r="6" fill="currentColor" opacity="0.3" />
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">AI Cliometrics</span>
+                        <span class="logo-subtitle">Expert Panel</span>
+                    </div>
+                </div>
+                <div class="round-indicator" id="roundIndicator">
+                    <span class="round-label">Current Round:</span>
+                    <span class="round-number" id="currentRoundDisplay">Loading...</span>
+                </div>
+                <nav class="nav-progress">
+                    <div class="progress-step" data-phase="1" id="step1">
+                        <span class="step-number">1</span>
+                        <span class="step-label">Factors</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-phase="2" id="step2">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Canon</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-phase="3" id="step3">
+                        <span class="step-number">3</span>
+                        <span class="step-label">Valuation</span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section id="welcome" class="section welcome-section">
+                <div class="welcome-card glass-card">
+                    <div class="welcome-header">
+                        <h1 class="welcome-title">
+                            <span class="title-accent">The Industrial Revolution</span>
+                            <span class="title-main">According to the Machines</span>
+                        </h1>
+                        <p class="welcome-subtitle">A Structural Meta-Analysis of Economic History Narratives in Large
+                            Language Models</p>
+                    </div>
+
+                    <div class="welcome-intro">
+                        <p>Thank you for participating in this pioneering research project. We are performing a
+                            <strong>structural epistemic audit</strong> of how Generative AI interprets, reconstructs,
+                            and narrates the Industrial Revolution.</p>
+                        <p>This study uses a <strong>3-round Delphi methodology</strong>, with rounds administered
+                            weekly:</p>
+                    </div>
+
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-icon">📊</div>
+                            <div class="info-content">
+                                <h3>Round 1: Factors</h3>
+                                <p>Validate the 8 explanatory factors</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">📚</div>
+                            <div class="info-content">
+                                <h3>Round 2: Canon</h3>
+                                <p>Curate the list of canonical works</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">⚖️</div>
+                            <div class="info-content">
+                                <h3>Round 3: Valuation</h3>
+                                <p>Correct AI's explanatory weights</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Round Status Display -->
+                    <div class="round-status-card" id="roundStatusCard">
+                        <div class="status-icon">⏳</div>
+                        <div class="status-content">
+                            <h3 id="roundStatusTitle">Loading round status...</h3>
+                            <p id="roundStatusDesc">Please wait while we check the current round.</p>
+                        </div>
+                    </div>
+
+                    <div class="expert-setup">
+                        <h3>Your Information</h3>
+                        <div class="form-group">
+                            <label for="expertId">Your Expert ID</label>
+                            <input type="text" id="expertId" class="input-field" placeholder="e.g., EXP_01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expertProfile">Your Historiographical Profile</label>
+                            <select id="expertProfile" class="input-field">
+                                <option value="">Select your orientation...</option>
+                                <option value="Global">Global / Imperial History</option>
+                                <option value="Institutional">Institutional / New Institutional Economics</option>
+                                <option value="Cliometric">Cliometric / Quantitative</option>
+                                <option value="Cultural">Cultural / Knowledge History</option>
+                                <option value="Generalist">Generalist / Eclectic</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="startBtn" class="btn btn-primary btn-large">
+                        <span>Begin Current Round</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Round Not Open Message -->
+            <section id="roundClosed" class="section thankyou-section hidden">
+                <div class="thankyou-card glass-card">
+                    <div class="thankyou-icon">🔒</div>
+                    <h2 class="thankyou-title">Round Not Yet Open</h2>
+                    <p class="thankyou-message" id="closedMessage">This round is not currently active. Please wait for
+                        the research team to open the next round.</p>
+                    <button class="btn btn-secondary" onclick="location.reload()">Refresh Status</button>
+                </div>
+            </section>
+
+            <!-- Phase 1: Factor Validation -->
+            <section id="phase1" class="section phase-section hidden">
+                <div class="phase-header">
+                    <div class="phase-badge">Round 1 of 3</div>
+                    <h2 class="phase-title">Factor Determination & Validation</h2>
+                    <p class="phase-description">Based on analysis of 10,000+ academic texts, the AI has proposed 8 main
+                        latent factors to explain the British Industrial Revolution. <strong>Does this taxonomy
+                            adequately cover the space of historiographical debate?</strong></p>
+                </div>
+
+                <div class="factors-grid" id="factorsGrid">
+                    <!-- Factors will be injected by JavaScript -->
+                </div>
+
+                <div class="form-group comments-section">
+                    <label for="phase1Comments">Suggested missing factors or comments</label>
+                    <textarea id="phase1Comments" class="input-field textarea" rows="3"
+                        placeholder="If you believe the taxonomy is missing critical factors, please describe them here..."></textarea>
+                </div>
+
+                <div class="phase-nav">
+                    <button class="btn btn-secondary" onclick="showSection('welcome')">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                        <span>Back</span>
+                    </button>
+                    <button class="btn btn-primary" onclick="submitRound1()">
+                        <span>Submit Round 1</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Phase 2: Canon Validation -->
+            <section id="phase2" class="section phase-section hidden">
+                <div class="phase-header">
+                    <div class="phase-badge">Round 2 of 3</div>
+                    <h2 class="phase-title">Canon Validation</h2>
+                    <p class="phase-description">To map the historiographical space, we have selected canonical works
+                        representing distinct explanatory families. <strong>Please validate this selection and suggest
+                            additions.</strong></p>
+                </div>
+
+                <div class="canon-grid" id="canonGrid">
+                    <!-- Canon items will be injected by JavaScript -->
+                </div>
+
+                <!-- Suggestion Form -->
+                <div class="suggestion-section glass-card">
+                    <h3 class="suggestion-title">📖 Suggest a New Reference</h3>
+                    <p class="suggestion-desc">If you believe a crucial work is missing from the canon, please suggest
+                        it below.</p>
+
+                    <div class="suggestion-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="suggestAuthor">Author(s) and Year</label>
+                                <input type="text" id="suggestAuthor" class="input-field"
+                                    placeholder="e.g., Williams (1944)">
+                            </div>
+                            <div class="form-group">
+                                <label for="suggestType">Historiographical Family</label>
+                                <select id="suggestType" class="input-field">
+                                    <option value="">Select type...</option>
+                                    <option value="Materialist">Materialist</option>
+                                    <option value="Global">Global / Imperial</option>
+                                    <option value="Institutional">Institutional</option>
+                                    <option value="Cultural">Cultural / Knowledge</option>
+                                    <option value="Cliometric">Cliometric</option>
+                                    <option value="Demographic">Demographic</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="suggestTitle">Full Title</label>
+                            <input type="text" id="suggestTitle" class="input-field"
+                                placeholder="e.g., Capitalism and Slavery">
+                        </div>
+                        <div class="form-group">
+                            <label for="suggestUrl">Publication URL (DOI, publisher, or Google Scholar)</label>
+                            <input type="text" id="suggestUrl" class="input-field" placeholder="https://doi.org/...">
+                        </div>
+                        <div class="form-group">
+                            <label for="suggestJustification">Justification for Inclusion</label>
+                            <textarea id="suggestJustification" class="input-field textarea" rows="2"
+                                placeholder="Why is this work essential for understanding the historiographical debate?"></textarea>
+                        </div>
+                        <button class="btn btn-secondary" onclick="submitSuggestion()">
+                            <span>+ Add Suggestion</span>
+                        </button>
+                    </div>
+
+                    <div id="suggestionsList" class="suggestions-list">
+                        <!-- Submitted suggestions will appear here -->
+                    </div>
+                </div>
+
+                <div class="form-group comments-section">
+                    <label for="phase2Comments">Additional comments on the canon</label>
+                    <textarea id="phase2Comments" class="input-field textarea" rows="3"
+                        placeholder="Any other thoughts on the canonical selection..."></textarea>
+                </div>
+
+                <div class="phase-nav">
+                    <button class="btn btn-secondary" onclick="showSection('welcome')">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                        <span>Back</span>
+                    </button>
+                    <button class="btn btn-primary" onclick="submitRound2()">
+                        <span>Submit Round 2</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Phase 3: Hybrid Valuation -->
+            <section id="phase3" class="section phase-section hidden">
+                <div class="phase-header">
+                    <div class="phase-badge">Round 3 of 3</div>
+                    <h2 class="phase-title">Hybrid Valuation</h2>
+                    <p class="phase-description">The AI has assigned explanatory weights to each canonical work.
+                        <strong>Your task is to correct the algorithm.</strong> Adjust the sliders according to your
+                        expertise. Weights must sum to 100.</p>
+                </div>
+
+                <!-- Work Selector -->
+                <div class="work-selector">
+                    <label for="workSelect">Select work to evaluate:</label>
+                    <select id="workSelect" class="input-field">
+                        <!-- Options will be injected by JavaScript -->
+                    </select>
+                    <div class="work-progress">
+                        <span id="workProgressText">0 of 15 completed</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="workProgressFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Work Display -->
+                <div class="current-work-card glass-card" id="currentWorkCard">
+                    <div class="work-info">
+                        <h3 class="work-title" id="workTitle">Select a work to begin</h3>
+                        <div class="work-meta">
+                            <span class="work-type" id="workType"></span>
+                            <a href="#" id="workUrl" class="work-link" target="_blank" rel="noopener">
+                                📖 View Publication
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sliders -->
+                <div class="sliders-container" id="slidersContainer">
+                    <!-- Sliders will be injected by JavaScript -->
+                </div>
+
+                <!-- Total Indicator -->
+                <div class="total-indicator" id="totalIndicator">
+                    <span class="total-label">Total</span>
+                    <span class="total-value" id="totalValue">0</span>
+                    <span class="total-target">/ 100</span>
+                </div>
+
+                <div class="phase-nav">
+                    <button class="btn btn-secondary" onclick="showSection('welcome')">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                        <span>Back</span>
+                    </button>
+                    <button class="btn btn-primary" id="submitBtn" onclick="submitRound3()">
+                        <span>Submit All Valuations</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Thank You Section -->
+            <section id="thankyou" class="section thankyou-section hidden">
+                <div class="thankyou-card glass-card">
+                    <div class="thankyou-icon">✨</div>
+                    <h2 class="thankyou-title">Thank You!</h2>
+                    <p class="thankyou-message">Your responses for this round have been recorded. You will receive an
+                        invitation when the next round opens.</p>
+                    <p class="thankyou-next" id="nextRoundInfo">The research team will aggregate responses and open the
+                        next round within one week.</p>
+                    <button class="btn btn-secondary" onclick="location.reload()">Return to Home</button>
+                </div>
+            </section>
+
+            <!-- Admin Panel -->
+            <section id="admin" class="section phase-section hidden">
+                <div class="phase-header">
+                    <div class="phase-badge">Administration</div>
+                    <h2 class="phase-title">Admin Panel</h2>
+                </div>
+
+                <div class="admin-card glass-card">
+                    <h3>Round Management</h3>
+                    <div id="adminRounds">
+                        <!-- Round controls will be injected -->
+                    </div>
+                </div>
+
+                <div class="admin-card glass-card">
+                    <h3>Pending Suggestions</h3>
+                    <div id="adminSuggestions">
+                        <!-- Suggestions will be injected -->
+                    </div>
+                </div>
+
+                <div class="admin-card glass-card">
+                    <h3>Export Data</h3>
+                    <div class="admin-export">
+                        <button class="btn btn-primary" onclick="exportJSON()">Export All (JSON)</button>
+                        <button class="btn btn-secondary" onclick="exportCSV()">Export Valuations (CSV)</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>AI Cliometrics Project · Department of Economic History · 2025</p>
+            <p class="admin-link"><a href="#" onclick="showAdminLogin()">Admin</a></p>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <h3>Admin Login</h3>
+            <div class="form-group">
+                <label for="adminToken">Admin Token</label>
+                <input type="password" id="adminToken" class="input-field" placeholder="Enter admin token">
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="hideAdminLogin()">Cancel</button>
+                <button class="btn btn-primary" onclick="loginAdmin()">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

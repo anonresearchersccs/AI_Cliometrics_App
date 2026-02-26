@@ -1,0 +1,16 @@
+# Render.com Blueprint Configuration
+services:
+  - type: web
+    name: ai-cliometrics-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn server:app
+    envVars:
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: DATABASE_PATH
+        value: /data/expert_panel.db
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
