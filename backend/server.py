@@ -10,9 +10,16 @@ import sqlite3
 import json
 import os
 import secrets
+import traceback
 
 app = Flask(__name__, static_folder='../', static_url_path='/')
 CORS(app)  # Enable CORS for GitHub Pages frontend
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    # Return JSON instead of HTML for HTTP errors
+    tb = traceback.format_exc()
+    return jsonify({"error": str(e), "traceback": tb}), 500
 
 @app.route('/')
 def index():
